@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: 'lzs'
+    password: 'lzs'
+    url: jdbc:mysql://192.168.0.111:3306/mp?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf8
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.mp.demo.entity
+  type-enums-package: com.mp.demo.entity.enums
+  global-config:
+    db-config:
+      id-type: uuid
+      table-underline: true
+#      table-prefix: mp_ # 设置表名前缀, User -> user 表, 现在 User -> mp_user
+
+  #  config-location: classpath:mybatis-config.xml #不能与configuration同时存在
+  configuration:
+    map-underscore-to-camel-case: true # 驼峰
+logging:
+#  日志级别
+  level:
+    root: warn  #跟级别
+    com.mp.demo.mapper: trace #指定位置的级别
+  pattern:
+    console: '%p%m%n'
